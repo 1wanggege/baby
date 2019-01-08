@@ -23,14 +23,7 @@
     delete from user
     where userid = #{userid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qf.entity.Users">
-    insert into user (userid, email, username, 
-      password, userflag, address, 
-      phone)
-    values (#{userid,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{userflag,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR})
-  </insert>
+
   <insert id="insertSelective" parameterType="com.qf.entity.Users">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -104,14 +97,8 @@
     </set>
     where userid = #{userid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qf.entity.Users">
-    update user
-    set email = #{email,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      userflag = #{userflag,jdbcType=INTEGER},
-      address = #{address,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR}
-    where userid = #{userid,jdbcType=INTEGER}
-  </update>
+  <select id="findByUsername" parameterType="string"  resultMap="BaseResultMap">
+    select * from user where username = #{username}
+  </select>
+
 </mapper>

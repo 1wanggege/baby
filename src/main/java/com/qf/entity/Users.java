@@ -1,4 +1,4 @@
-package entity;
+package com.qf.entity;
 
 public class Users {
     private Integer userid;

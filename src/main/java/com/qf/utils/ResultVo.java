@@ -1,4 +1,4 @@
-package utils;
+package com.qf.utils;
 
 public class ResultVo {
 	private int code;

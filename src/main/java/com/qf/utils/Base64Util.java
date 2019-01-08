@@ -1,4 +1,4 @@
-package utils;
+package com.qf.utils;
 
 import java.util.Base64;
 
