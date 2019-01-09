@@ -42,6 +42,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public JsonBean resign(Users users) {
+
+        if (users.getPassword().equals("")||users.getPassword()==null){
+            throw new RuntimeException("密码为空，请输入注册密码");
+        }
+        if (users.getUsername().equals("")||users.getUsername() == null){
+            throw new RuntimeException("用户名为空，请输入注册用户名");
+        }
         String name = users.getUsername();
         Users user = userdao.findByUsername(name);
         if (user != null){
