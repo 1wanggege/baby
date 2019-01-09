@@ -3,7 +3,7 @@ package com.qf.utils;
 public class ResultVo {
 	private int code;
 	private String msg;
-	private long count;
+
 	private Object data;
 	public int getCode() {
 		return code;
@@ -23,18 +23,11 @@ public class ResultVo {
 	public void setData(Object data) {
 		this.data = data;
 	}
-	
-	public long getCount() {
-		return count;
-	}
-	public void setCount(long count) {
-		this.count = count;
-	}
-	public static ResultVo setOK(Object data,int count) {
+
+	public static ResultVo setOK(Object data) {
 		ResultVo rvo=new ResultVo();
 		rvo.setCode(0);
 		rvo.setMsg("OK");
-		rvo.setCount(count);
 		rvo.setData(data);
 		return rvo;
 	}
@@ -42,7 +35,6 @@ public class ResultVo {
 		ResultVo rvo=new ResultVo();
 		rvo.setCode(1);
 		rvo.setMsg("ERROR");
-		rvo.setCount(-1);
 		return rvo;
 	}
 	
