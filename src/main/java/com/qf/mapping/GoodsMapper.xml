@@ -161,4 +161,8 @@
   select * from goods where goodsname = #{goodsname}
   </select>
 
+  <select id="selectByTypeId" resultMap="BaseResultMap">
+    select goodsname,goodsimp,vipprice from goods
+    where typeid =#{typeid}
+  </select>
 </mapper>

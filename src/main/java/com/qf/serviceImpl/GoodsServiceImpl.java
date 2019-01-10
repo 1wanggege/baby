@@ -1,6 +1,7 @@
 package com.qf.serviceImpl;
 
 import com.qf.dao.GoodsMapper;
+import com.qf.entity.Goods;
 import com.qf.service.GoodsService;
 import com.qf.utils.ResultVo1;
 import com.qf.utils.VGoods;
@@ -39,5 +40,18 @@ public class GoodsServiceImpl implements GoodsService {
             rv = ResultVo1.setERROR(null);
         }
         return g;
+    }
+
+    @Override
+    public List<Goods> selectByTypeId(Integer typeid) {
+        List<Goods> goods = null;
+        try {
+            goods = gm.selectByTypeId(typeid);
+            rv = ResultVo1.setOK(goods);
+        } catch (Exception e) {
+            e.printStackTrace();
+            rv = ResultVo1.setERROR(null);
+        }
+        return goods;
     }
 }
