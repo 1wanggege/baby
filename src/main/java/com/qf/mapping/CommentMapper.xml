@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.Comment">
+    <id column="commentid" jdbcType="INTEGER" property="commentid" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="txt" jdbcType="VARCHAR" property="txt" />
+    <result column="imp" jdbcType="VARCHAR" property="imp" />
+    <result column="goodsid" jdbcType="INTEGER" property="goodsid" />
+  </resultMap>
+  <resultMap id="BaseResultMap1" type="com.qf.utils.VComment">
+    <id column="commentid" jdbcType="INTEGER" property="commentid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="txt" jdbcType="VARCHAR" property="txt" />
+    <result column="imp" jdbcType="VARCHAR" property="imp" />
+    <result column="goodsname" jdbcType="VARCHAR" property="goodsname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    commentid, userid, txt, imp, goodsid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where commentid = #{commentid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from comment
+    where commentid = #{commentid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.Comment">
+    insert into comment (commentid, userid, txt, 
+      imp, goodsid)
+    values (#{commentid,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, #{txt,jdbcType=VARCHAR}, 
+      #{imp,jdbcType=VARCHAR}, #{goodsid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.Comment">
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commentid != null">
+        commentid,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="txt != null">
+        txt,
+      </if>
+      <if test="imp != null">
+        imp,
+      </if>
+      <if test="goodsid != null">
+        goodsid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commentid != null">
+        #{commentid,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="txt != null">
+        #{txt,jdbcType=VARCHAR},
+      </if>
+      <if test="imp != null">
+        #{imp,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.Comment">
+    update comment
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="txt != null">
+        txt = #{txt,jdbcType=VARCHAR},
+      </if>
+      <if test="imp != null">
+        imp = #{imp,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsid != null">
+        goodsid = #{goodsid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where commentid = #{commentid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.Comment">
+    update comment
+    set userid = #{userid,jdbcType=BIGINT},
+      txt = #{txt,jdbcType=VARCHAR},
+      imp = #{imp,jdbcType=VARCHAR},
+      goodsid = #{goodsid,jdbcType=BIGINT}
+    where commentid = #{commentid,jdbcType=BIGINT}
+  </update>
+  <select id="selectByGoodsId" resultMap="BaseResultMap1">
+  select c.commentid,u.username,c.txt,c.imp,g.goodsname from `comment` c
+INNER JOIN goods g
+on c.goodsid=g.goodsid
+INNER JOIN `user` u
+ON c.userid=u.userid
+where c.goodsid=#{goodsid}
+  </select>
+  <insert id="insertComment" parameterType="com.qf.entity.Comment">
+    insert into comment(commentid, userid, txt, imp, goodsid)
+    value (#{commentid},#{userid},#{txt}, #{imp}, #{goodsid})
+  </insert>
+</mapper>

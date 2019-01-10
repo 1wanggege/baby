@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 @Api(produces = "这是我们Java后台的接口文档",value = "接口文档")
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired
