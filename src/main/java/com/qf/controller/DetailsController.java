@@ -7,10 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Api(value = "食品评论Controller", tags = "食品评论的问题及评论接口")
 @RestController
@@ -25,7 +22,7 @@ public class DetailsController {
      * @return
      */
     @ApiOperation("根据食品的id查询到对应的食品问答和评论")
-    @PostMapping("findDetailsByFoodId.do")
+    @RequestMapping("findDetailsByFoodId.do")
     public ResultVo findByFid(@ApiParam(value = "食品ID(fid)") Integer fid){
         return detailsService.selectByPrimaryFoodId(fid);
     }
@@ -36,7 +33,7 @@ public class DetailsController {
      * @return
      */
     @ApiOperation("根据传入的食品评论对应的食品id新增食品的问答和评论")
-    @PostMapping("addDetailByFid.do")
+    @RequestMapping("addDetailByFid.do")
     public ResultVo addByFid(@ApiParam(value = "食品属性(fid)")Details detail){
         return detailsService.insertSelective(detail);
     }
@@ -47,7 +44,7 @@ public class DetailsController {
      * @return
      */
     @ApiOperation("根据食品评论的id删除评论")
-    @GetMapping("delDetailById.do")
+    @RequestMapping("delDetailById.do")
     public ResultVo delById(@ApiParam(value = "评论id") Integer id){
         return detailsService.deleteByPrimaryKey(id);
     }
@@ -58,7 +55,7 @@ public class DetailsController {
      * @return
      */
     @ApiOperation("根据评论的id修改评论内容")
-    @GetMapping("updateById.do")
+    @RequestMapping("updateById.do")
     public ResultVo updateById(@ApiParam(value = "食品对应的评论")Details detail){
         return detailsService.updateByPrimaryKeySelective(detail);
     }

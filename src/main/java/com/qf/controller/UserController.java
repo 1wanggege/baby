@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 @Api(value = "用户Controller",tags = "用户模块的接口文档")
 @RestController
@@ -25,7 +26,7 @@ public class UserController {
      * @return
      */
     @ApiOperation("用户登录")
-    @PostMapping("userLogin.do")
+    @RequestMapping("userLogin.do")
     @CrossOrigin
     public JsonBean login (@ApiParam(value = "用户名") String username,@ApiParam(value = "密码") String password){
         return userService.login(username,password);
@@ -37,7 +38,7 @@ public class UserController {
      * @return
      */
     @ApiOperation("用户注册")
-    @PostMapping("userResign.do")
+    @RequestMapping("userResign.do")
     @CrossOrigin
     public JsonBean resign(@ApiParam(name = "传入的新用户",value = "新用户Json格式属性属性") Users users){
         return userService.resign(users);
