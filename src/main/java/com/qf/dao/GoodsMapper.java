@@ -1,6 +1,7 @@
 package com.qf.dao;
 
 import com.qf.entity.Goods;
+
 import com.qf.utils.VGoods;
 
 import java.util.List;
@@ -21,4 +22,8 @@ public interface GoodsMapper {
     List<VGoods> selectAll();
 
     List<VGoods> selectByName(String goodsname);
+
+    List<Goods> selectByTypeId(Integer typeid);
+
+
 }

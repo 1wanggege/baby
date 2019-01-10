@@ -33,4 +33,6 @@ public class CommentController {
     public ResultVo1 insertComment(@ApiParam(value = "传对象")Comment comment) {
         return  cms.insertComment(comment);
     }
+
+
 }

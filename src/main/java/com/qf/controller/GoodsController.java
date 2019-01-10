@@ -1,5 +1,6 @@
 package com.qf.controller;
 
+import com.qf.entity.Goods;
 import com.qf.service.GoodsService;
 import com.qf.utils.VGoods;
 import io.swagger.annotations.Api;
@@ -36,5 +37,12 @@ public class GoodsController {
     @ResponseBody
     public List<VGoods> selectByName(@ApiParam(value = "传商品名")String goodsname){
         return  gss.selectByName(goodsname);
+    }
+
+    @ApiOperation("点击类别后展示所属类型的商品")
+    @RequestMapping("/selectByTypeId.do")
+    @ResponseBody
+    public  List<Goods> selectByTypeId(@ApiParam(value = "传商品类型id")Integer typeid){
+        return  gss.selectByTypeId(typeid);
     }
 }
