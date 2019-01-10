@@ -3,6 +3,8 @@ package com.qf.serviceImpl;
 import com.qf.dao.CommentMapper;
 import com.qf.entity.Comment;
 import com.qf.service.CommentService;
+
+import com.qf.utils.ResultVo;
 import com.qf.utils.ResultVo1;
 import com.qf.utils.VComment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import java.util.List;
 @Service
 public class CommentServiceImpl implements CommentService {
     private ResultVo1 rv;
+    private ResultVo rv1;
     @Autowired
     private CommentMapper cm;
     @Override
@@ -29,7 +32,14 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public ResultVo1 insertComment(Comment comment) {
-        return null;
+        try {
+            cm.insertComment(comment);
+            rv = ResultVo1.setOK(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            rv = ResultVo1.setERROR(1);
+        }
+        return  rv;
     }
 
 
