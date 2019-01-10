@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.FcMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.Fc">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="f1" jdbcType="INTEGER" property="f1" />
+    <result column="f2" jdbcType="INTEGER" property="f2" />
+    <result column="f3" jdbcType="INTEGER" property="f3" />
+    <result column="f4" jdbcType="INTEGER" property="f4" />
+    <result column="f5" jdbcType="INTEGER" property="f5" />
+    <result column="f6" jdbcType="INTEGER" property="f6" />
+    <result column="f7" jdbcType="INTEGER" property="f7" />
+    <result column="f8" jdbcType="INTEGER" property="f8" />
+    <result column="f9" jdbcType="INTEGER" property="f9" />
+    <result column="f10" jdbcType="INTEGER" property="f10" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fc
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from fc
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.qf.entity.Fc">
+    insert into fc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="f1 != null">
+        f1,
+      </if>
+      <if test="f2 != null">
+        f2,
+      </if>
+      <if test="f3 != null">
+        f3,
+      </if>
+      <if test="f4 != null">
+        f4,
+      </if>
+      <if test="f5 != null">
+        f5,
+      </if>
+      <if test="f6 != null">
+        f6,
+      </if>
+      <if test="f7 != null">
+        f7,
+      </if>
+      <if test="f8 != null">
+        f8,
+      </if>
+      <if test="f9 != null">
+        f9,
+      </if>
+      <if test="f10 != null">
+        f10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="f1 != null">
+        #{f1,jdbcType=INTEGER},
+      </if>
+      <if test="f2 != null">
+        #{f2,jdbcType=INTEGER},
+      </if>
+      <if test="f3 != null">
+        #{f3,jdbcType=INTEGER},
+      </if>
+      <if test="f4 != null">
+        #{f4,jdbcType=INTEGER},
+      </if>
+      <if test="f5 != null">
+        #{f5,jdbcType=INTEGER},
+      </if>
+      <if test="f6 != null">
+        #{f6,jdbcType=INTEGER},
+      </if>
+      <if test="f7 != null">
+        #{f7,jdbcType=INTEGER},
+      </if>
+      <if test="f8 != null">
+        #{f8,jdbcType=INTEGER},
+      </if>
+      <if test="f9 != null">
+        #{f9,jdbcType=INTEGER},
+      </if>
+      <if test="f10 != null">
+        #{f10,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.Fc">
+    update fc
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="f1 != null">
+        f1 = #{f1,jdbcType=INTEGER},
+      </if>
+      <if test="f2 != null">
+        f2 = #{f2,jdbcType=INTEGER},
+      </if>
+      <if test="f3 != null">
+        f3 = #{f3,jdbcType=INTEGER},
+      </if>
+      <if test="f4 != null">
+        f4 = #{f4,jdbcType=INTEGER},
+      </if>
+      <if test="f5 != null">
+        f5 = #{f5,jdbcType=INTEGER},
+      </if>
+      <if test="f6 != null">
+        f6 = #{f6,jdbcType=INTEGER},
+      </if>
+      <if test="f7 != null">
+        f7 = #{f7,jdbcType=INTEGER},
+      </if>
+      <if test="f8 != null">
+        f8 = #{f8,jdbcType=INTEGER},
+      </if>
+      <if test="f9 != null">
+        f9 = #{f9,jdbcType=INTEGER},
+      </if>
+      <if test="f10 != null">
+        f10 = #{f10,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select * fromn fc
+  </select>
+</mapper>

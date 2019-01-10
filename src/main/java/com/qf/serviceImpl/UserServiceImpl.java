@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         if(!Objects.equals(user.getPassword(), EncryptUtil.md5Enc(password))) {
             throw new RuntimeException("密碼錯誤");
     }else {
-            bean.setCode(1);
+            bean.setCode(0);
         }
         return bean;
     }
@@ -57,12 +57,12 @@ public class UserServiceImpl implements UserService {
             try {
                 users.setPassword(EncryptUtil.md5Enc(users.getPassword()));
                 users.setUserflag(1);
-                bean.setCode(1);
+                bean.setCode(0);
                 userdao.insertSelective(users);
             }catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-                bean.setCode(0);
+                bean.setCode(1);
             }
         }
 
