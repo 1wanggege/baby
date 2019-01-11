@@ -33,7 +33,7 @@ public class StageFoodController {
 
     @ApiOperation("新增三级菜单")
     @RequestMapping("addStageBy.do")
-    public ResultVo addStageBy(Stage stage){
+    public ResultVo addStageBy(@ApiParam(value = "传来三级菜单属性")Stage stage){
         return stageFoodService.insertSelective(stage);
     }
 

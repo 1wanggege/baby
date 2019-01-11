@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-@Api(value = "菜谱Controller",tags = "菜谱模块的接口")
+@Api(value = "多菜品构成菜谱Controller",tags = "多菜品构成菜谱模块的接口")
 @RestController
 @CrossOrigin
 public class FcController {
