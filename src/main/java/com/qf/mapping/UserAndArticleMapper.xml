@@ -95,6 +95,8 @@
 INNER JOIN collectuserandarticle c
 on a.id=c.aid
 INNER JOIN `user` u
-on c.uid = #{uid}
+on c.uid = u.userid
+where userid= #{uid}
+
   </select>
 </mapper>

@@ -20,7 +20,7 @@ public class TalkController {
     @ApiOperation("通过userid查看用户关注的人发表的说说")
     @RequestMapping("/selectByFansId.do")
     @ResponseBody
-    public List<VTalk> selectByTalk(@ApiParam(value = "传用户的id")Integer userid){
+    public List<VTalk> selectByFansId(@ApiParam(value = "传用户的id")Integer userid){
         return ts.selectTalk(userid);
     }
 }

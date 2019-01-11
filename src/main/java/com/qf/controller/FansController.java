@@ -19,9 +19,9 @@ public class FansController {
     private FansMapper fansm;
 
     @ApiOperation("通过userid查看用户关注的人")
-    @RequestMapping("/selectByFansId.do")
+    @RequestMapping("/selectByFanId.do")
     @ResponseBody
-    public List<VFans> selectByFansId(@ApiParam(value = "传用户的id")Integer userid){
+    public List<VFans> selectByFanId(@ApiParam(value = "传用户的id")Integer userid){
         return fansm.selectByFansId(userid);
     }
 }
