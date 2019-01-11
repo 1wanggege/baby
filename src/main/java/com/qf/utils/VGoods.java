@@ -19,6 +19,16 @@ public class VGoods {
 
     private String txt;
 
+    private Integer prizeid;
+
+    public Integer getPrizeid() {
+        return prizeid;
+    }
+
+    public void setPrizeid(Integer prizeid) {
+        this.prizeid = prizeid;
+    }
+
     public Integer getGoodsid() {
         return goodsid;
     }

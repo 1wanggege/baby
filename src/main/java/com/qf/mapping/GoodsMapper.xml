@@ -11,6 +11,7 @@
     <result column="goodsflag" jdbcType="INTEGER" property="goodsflag" />
     <result column="goodscount" jdbcType="INTEGER" property="goodscount" />
     <result column="commentid" jdbcType="INTEGER" property="commentid" />
+    <result column="prizeid" jdbcType="INTEGER" property="prizeid" />
   </resultMap>
   <resultMap id="BaseResultMap1" type="com.qf.utils.VGoods">
     <id column="goodsid" jdbcType="INTEGER" property="goodsid" />
@@ -22,6 +23,7 @@
     <result column="goodsflag" jdbcType="INTEGER" property="goodsflag" />
     <result column="goodscount" jdbcType="INTEGER" property="goodscount" />
     <result column="txt" jdbcType="VARCHAR" property="txt" />
+    <result column="prizeid" jdbcType="INTEGER" property="prizeid" />
   </resultMap>
   <sql id="Base_Column_List">
     goodsid, typeid, goodsname, goodsimp, vipprice, goodsprice, goodsflag, goodscount, 

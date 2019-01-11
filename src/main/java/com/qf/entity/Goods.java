@@ -19,6 +19,9 @@ public class Goods {
 
     private Integer commentid;
 
+    private Integer prizeid;
+
+
     public Integer getGoodsid() {
         return goodsid;
     }
@@ -89,5 +92,13 @@ public class Goods {
 
     public void setCommentid(Integer commentid) {
         this.commentid = commentid;
+    }
+
+    public Integer getPrizeid() {
+        return prizeid;
+    }
+
+    public void setPrizeid(Integer prizeid) {
+        this.prizeid = prizeid;
     }
 }

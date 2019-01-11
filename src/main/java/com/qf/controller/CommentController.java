@@ -28,7 +28,7 @@ public class CommentController {
     }
 
     @ApiOperation("增加评论")
-    @RequestMapping("/insertComment.do")
+    @RequestMapping("/insertComment. do")
     @ResponseBody
     public ResultVo1 insertComment(@ApiParam(value = "传对象")Comment comment) {
         return  cms.insertComment(comment);
