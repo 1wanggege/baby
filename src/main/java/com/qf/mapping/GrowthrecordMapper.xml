@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.GrowthrecordMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.Growthrecord">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="daynumber" jdbcType="INTEGER" property="daynumber" />
+    <result column="infos" jdbcType="VARCHAR" property="infos" />
+    <result column="height" jdbcType="VARCHAR" property="height" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="headSeize" jdbcType="VARCHAR" property="headseize" />
+    <result column="bid" jdbcType="INTEGER" property="bid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, daynumber, infos, height, weight, headSeize, bid, uid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from growthrecord
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from growthrecord
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.Growthrecord">
+    insert into growthrecord (id, name, daynumber, 
+      infos, height, weight, 
+      headSeize, bid, uid
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{daynumber,jdbcType=INTEGER}, 
+      #{infos,jdbcType=VARCHAR}, #{height,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, 
+      #{headseize,jdbcType=VARCHAR}, #{bid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.Growthrecord">
+    insert into growthrecord
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="daynumber != null">
+        daynumber,
+      </if>
+      <if test="infos != null">
+        infos,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="headseize != null">
+        headSeize,
+      </if>
+      <if test="bid != null">
+        bid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="daynumber != null">
+        #{daynumber,jdbcType=INTEGER},
+      </if>
+      <if test="infos != null">
+        #{infos,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="headseize != null">
+        #{headseize,jdbcType=VARCHAR},
+      </if>
+      <if test="bid != null">
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.Growthrecord">
+    update growthrecord
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="daynumber != null">
+        daynumber = #{daynumber,jdbcType=INTEGER},
+      </if>
+      <if test="infos != null">
+        infos = #{infos,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="headseize != null">
+        headSeize = #{headseize,jdbcType=VARCHAR},
+      </if>
+      <if test="bid != null">
+        bid = #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.Growthrecord">
+    update growthrecord
+    set name = #{name,jdbcType=VARCHAR},
+      daynumber = #{daynumber,jdbcType=INTEGER},
+      infos = #{infos,jdbcType=VARCHAR},
+      height = #{height,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      headSeize = #{headseize,jdbcType=VARCHAR},
+      bid = #{bid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+<select id="findByBid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  select * from growthrecord where bid=#{bid}
+</select>
+
+</mapper>
