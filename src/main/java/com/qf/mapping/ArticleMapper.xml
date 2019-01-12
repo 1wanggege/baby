@@ -128,5 +128,8 @@
   <select id="findAll" resultMap="BaseResultMap">
     select * from article
   </select>
+  <update id="updateById"  parameterType="java.lang.Integer">
+    update article set count = #{count } where id = #{id}
+  </update>
 
 </mapper>

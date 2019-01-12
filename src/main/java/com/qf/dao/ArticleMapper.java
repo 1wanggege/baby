@@ -1,6 +1,7 @@
 package com.qf.dao;
 
 import com.qf.entity.Article;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,5 +17,8 @@ public interface ArticleMapper {
     int updateByPrimaryKeySelective(Article record);
     //展示所有的文章
     List<Article> findAll();
+    //设置文章的观看次数
+    int updateById(@Param("id") Integer id,@Param("count") Integer count);
+
 
 }
