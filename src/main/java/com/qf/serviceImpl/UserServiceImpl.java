@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("密碼錯誤");
     }else {
             bean.setCode(0);
+            bean.setInfo(user.getUserid());
         }
         return bean;
     }

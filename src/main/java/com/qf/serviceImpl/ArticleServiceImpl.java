@@ -24,6 +24,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ResultVo insertSelective(Article record) {
        if (record!=null){
+           record.setCount(0);
            return ResultVo.setOK(articledao.insertSelective(record));
        }
         return ResultVo.setERROR();
@@ -31,6 +32,11 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ResultVo selectByPrimaryKey(Integer id) {
+
+        Article article = articledao.selectByPrimaryKey(id);
+        int count = article.getCount() + 1;
+        articledao.updateById(id,count);
+
         if (id!=null){
             return ResultVo.setOK(articledao.selectByPrimaryKey(id));
         }
